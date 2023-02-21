@@ -4,8 +4,8 @@ using System.Text;
 
 namespace FactoryPatternApp
 {
-    interface ICallable
+    public interface IGuitarBuild
     {
-        void Build();
+        public void Build();
     }
 }

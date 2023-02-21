@@ -6,52 +6,32 @@ namespace FactoryPatternApp
     {
         static void Main(string[] args)
         {
-            //Ask the user for the phone they wish to create
-            Console.WriteLine("What kind of phone do you want to create?");
-            string userPhone = Console.ReadLine();
+            int genre;
+            bool input = false;
 
-            //Choose the correct type of phone to create through the factory method that implements the ICallable interface
-            ICallable phone = PhoneFactory.GetPhone(userPhone);
-            phone.Build();
-            Console.ReadLine();
+            do
+            {
 
+            
+            Console.WriteLine("Allow us to assist you with finding the right guitar for your style of music.");
+            Console.WriteLine("Please state the style of music you like to play or would like to learn.");
+            Console.WriteLine("Please select:");
+            Console.WriteLine("1 for Country");
+            Console.WriteLine("2 for Rock");
+            Console.WriteLine("3 for Metal");
+            Console.WriteLine("4 for Jazz");
+            Console.WriteLine("Any other number if you do not see your style here");
+            input = int.TryParse(Console.ReadLine(),out genre);
+                Console.WriteLine();
+            }
+            while(input == false);
 
+            var guitar = GuitarFactory.GetGuitar(genre);
+            guitar.Build();
+            
+                
 
-            //***********Example of bad practice************//
-
-            //Console.WriteLine("What kind of phone do you want to create?");
-            //string userPhone = Console.ReadLine();
-
-            //if (userPhone.ToLower() == "android")
-            //{
-            //    AndroidPhone android = new AndroidPhone();
-            //    android.Build();
-            //    Console.ReadLine();
-            //}
-            //else if (userPhone.ToLower() == "apple")
-            //{
-            //    ApplePhone apple = new ApplePhone();
-            //    apple.Build();
-            //    Console.ReadLine();
-            //}
-            //else if (userPhone.ToLower() == "iphone")
-            //{
-            //    ApplePhone apple = new ApplePhone();
-            //    apple.Build();
-            //    Console.ReadLine();
-            //}
-            //else if (userPhone.ToLower() == "google")
-            //{
-            //    GooglePhone google = new GooglePhone();
-            //    google.Build();
-            //    Console.ReadLine();
-            //}
-            //else
-            //{
-            //    AndroidPhone android = new AndroidPhone();
-            //    android.Build();
-            //    Console.ReadLine();
-            //}
+            
         }
     }
 }
